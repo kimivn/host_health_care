@@ -11,7 +11,6 @@ const NavigationApp = React.forwardRef((props: any, ref: any) => {
   const {userStore} = useStores();
 
   const renderStackApp = () => {
-    console.log(222, userStore.user);
     if (userStore.user.token !== '') {
       return <MainStack />;
     }

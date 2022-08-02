@@ -15,7 +15,6 @@ interface PopularProps {
 }
 
 const PopularItem = (props: PopularProps) => {
-  console.log({props});
   const {image, city, province, matches_count, rate_per_week} = props.item;
   return (
     <TouchableOpacity style={styles.block} onPress={props.onPress}>
