@@ -19,12 +19,18 @@ const SuggestJob = () => {
     refModal.current.openModal();
   };
 
+  const onJobDetail = () => {
+    navigation.navigate('JOB_DETAIL');
+  };
+
   return (
     <View style={styles.container}>
       <Header title="Chicago" back />
       <FlatList
         data={suggest}
-        renderItem={({item}) => <SuggestItem item={item} onSubmit={onSubmit} />}
+        renderItem={({item}) => (
+          <SuggestItem item={item} onSubmit={onSubmit} onPress={onJobDetail} />
+        )}
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{padding: 16}}
         showsVerticalScrollIndicator={false}

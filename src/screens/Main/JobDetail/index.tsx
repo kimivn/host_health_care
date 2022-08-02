@@ -1,5 +1,5 @@
 import React, {MutableRefObject, useRef} from 'react';
-import {View, Image, StyleSheet, Pressable, ScrollView} from 'react-native';
+import {View, Image, ScrollView} from 'react-native';
 import {
   IconCalendar,
   IconJob,

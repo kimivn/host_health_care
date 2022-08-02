@@ -6,6 +6,15 @@ install! 'cocoapods', :deterministic_uuids => false
 
 production = ENV["PRODUCTION"] == "1"
 
+project 'host_health_care', {
+  'DebugDev' => :debug,
+  'DebugStaging' => :debug,
+  'DebugProd' => :debug,
+  'ReleaseDev' => :release,
+  'ReleaseStaging' => :release,
+  'ReleaseProd' => :release,
+}
+
 target 'host_health_care' do
   config = use_native_modules!
 
@@ -18,7 +27,7 @@ target 'host_health_care' do
     :production => production,
     :hermes_enabled => flags[:hermes_enabled],
     :fabric_enabled => flags[:fabric_enabled],
-    :flipper_configuration => FlipperConfiguration.enabled,
+#    :flipper_configuration => FlipperConfiguration.enabled,
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )

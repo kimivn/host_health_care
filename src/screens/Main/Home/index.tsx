@@ -112,7 +112,15 @@ const Home = () => {
   );
 };
 
-const Block = ({image, title, description}) => {
+const Block = ({
+  image,
+  title,
+  description,
+}: {
+  image: any;
+  title: string;
+  description: string;
+}) => {
   return (
     <View style={styles.block}>
       <Image source={image} style={styles.blockImage} />
