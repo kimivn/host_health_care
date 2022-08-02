@@ -1,11 +1,10 @@
 import React, {useCallback} from 'react';
-import {StyleSheet, View, Image, Pressable} from 'react-native';
+import {StyleSheet, View, Image, Pressable, TouchableOpacity} from 'react-native';
 import {AppText} from './AppText';
 import {colors, fontFamily, scaleSize, SIZE} from '../theme';
 import {debounce} from 'lodash';
 import {ButtonProps} from '../interfaces';
 import {CaretRight} from '../assets';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const AppButton = React.memo((props: ButtonProps) => {
   const {

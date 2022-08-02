@@ -24,7 +24,7 @@ export function scaleSize(size: number) {
 
 export const SIZE = {
   //Input
-  input_height: scaleWidth(38),
+  input_height: scaleWidth(36),
   //Input
   btn_height: scaleWidth(56),
   btn_height_small: scaleWidth(48),

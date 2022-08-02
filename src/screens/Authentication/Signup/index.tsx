@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/core';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View, Image, TouchableOpacity, ScrollView} from 'react-native';
 import {styles} from './style';
@@ -9,13 +9,14 @@ import {SIZE} from '../../../theme';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {useStores} from '../../../stores';
+import {NavigationUtils} from '../../../navigation';
 
 interface screenNavigationProp {
   navigate: any;
 }
 
-const SignUp = React.memo(() => {
-  const navigation = useNavigation<screenNavigationProp>();
+const SignUp = () => {
+  const navigation = NavigationUtils;
   const {userStore} = useStores();
 
   const formInitialValues = {
@@ -136,6 +137,6 @@ const SignUp = React.memo(() => {
       </ScrollView>
     </View>
   );
-});
+};
 
 export {SignUp};

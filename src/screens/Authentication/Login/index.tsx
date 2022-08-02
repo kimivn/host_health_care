@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/core';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View, Image, TouchableOpacity} from 'react-native';
 import {styles} from './style';
@@ -9,13 +9,14 @@ import {SIZE} from '../../../theme';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {useStores} from '../../../stores';
+import {NavigationUtils} from '../../../navigation';
 
 interface screenNavigationProp {
   navigate: any;
 }
 
 const Login = () => {
-  const navigation = useNavigation<screenNavigationProp>();
+  const navigation = NavigationUtils;
   const {userStore} = useStores();
 
   const formInitialValues = {

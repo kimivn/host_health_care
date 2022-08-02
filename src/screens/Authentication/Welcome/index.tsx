@@ -1,17 +1,18 @@
 import {AppButton, AppText} from '../../../component';
-import {useNavigation} from '@react-navigation/core';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View, Image} from 'react-native';
 import {styles} from './style';
 import {LOGIN, SIGNUP} from '../../../navigation/routeName';
 import {logo} from '../../../assets';
+import {NavigationUtils} from '../../../navigation';
 
 interface screenNavigationProp {
   navigate: any;
 }
 
-const Welcome = React.memo(() => {
-  const navigation = useNavigation<screenNavigationProp>();
+const Welcome = () => {
+  const navigation = NavigationUtils;
 
   const moveToSignIn = () => {
     navigation.navigate(LOGIN);
@@ -33,6 +34,6 @@ const Welcome = React.memo(() => {
       <AppButton title="Sign in" onPress={moveToSignIn} typeButton="linear" />
     </View>
   );
-});
+};
 
 export {Welcome};
