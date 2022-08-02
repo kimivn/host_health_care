@@ -1,24 +1,11 @@
 import React, {useCallback} from 'react';
-import {
-  TouchableOpacity,
-  StyleSheet,
-  View,
-  Image,
-  Pressable,
-} from 'react-native';
+import {StyleSheet, View, Image, Pressable} from 'react-native';
 import {AppText} from './AppText';
-import {colors, fontFamily, scaleSize, SIZE} from '../util';
+import {colors, fontFamily, scaleSize, SIZE} from '../theme';
 import {debounce} from 'lodash';
 import {ButtonProps} from '../interfaces';
-import {
-  ArrowNext,
-  CaretRight,
-  IconAddPhotos,
-  IconAddVideos,
-  IconPlus,
-  IconResetMail,
-  IconTick,
-} from '../assets';
+import {CaretRight} from '../assets';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const AppButton = React.memo((props: ButtonProps) => {
   const {
@@ -81,31 +68,18 @@ const AppButton = React.memo((props: ButtonProps) => {
     switch (iconRight) {
       case 'right':
         return <CaretRight />;
-      case 'email':
-        return <IconResetMail />;
-      case 'arNextBlack':
-        return <ArrowNext iconFillColor={colors.primary} />;
-      case 'arNext':
-        return <ArrowNext />;
-      case 'addPhoto':
-        return <IconAddPhotos />;
-      case 'addVideo':
-        return <IconAddVideos />;
-      case 'tick':
-        return <IconTick />;
-      case 'plus':
-        return <IconPlus />;
     }
 
     return null;
   };
 
   return (
-    <View style={containerStyle}>
+    <Pressable style={containerStyle}>
       {label && (
         <AppText style={[styles.label, customStyleLabel]}>{label}</AppText>
       )}
-      <Pressable
+      <TouchableOpacity
+        activeOpacity={0.8}
         style={buttonStyle}
         disabled={disabled}
         onPress={onPressButton}>
@@ -114,8 +88,8 @@ const AppButton = React.memo((props: ButtonProps) => {
         {!!title && <AppText style={titleStyle}>{title}</AppText>}
         {iconRight && <View style={styles.iconRight}>{renderIconRight()}</View>}
         {customChildView}
-      </Pressable>
-    </View>
+      </TouchableOpacity>
+    </Pressable>
   );
 });
 

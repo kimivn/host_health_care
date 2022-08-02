@@ -90,6 +90,10 @@ export interface signUpState {
   email: string;
   firstName: string;
   lastName: string;
-  confirmPass: string;
+  confirmPass?: string;
   password: string;
+}
+
+export interface RefModal {
+  openModal: () => void;
 }

@@ -1,11 +1,4 @@
-import {
-  colors,
-  fontFamily,
-  scaleHeight,
-  scaleSize,
-  scaleWidth,
-  SIZE,
-} from '../../../util';
+import {colors, fontFamily, scaleHeight} from '../../../theme';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({

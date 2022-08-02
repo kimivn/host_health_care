@@ -1,18 +1,16 @@
 import {AppButton, AppText} from '../../../component';
 import {useNavigation} from '@react-navigation/core';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, Image} from 'react-native';
 import {styles} from './style';
 import {LOGIN, SIGNUP} from '../../../navigation/routeName';
 import {logo} from '../../../assets';
 
-interface WelcomeProp {}
-
 interface screenNavigationProp {
   navigate: any;
 }
 
-const Welcome = React.memo((props: WelcomeProp) => {
+const Welcome = React.memo(() => {
   const navigation = useNavigation<screenNavigationProp>();
 
   const moveToSignIn = () => {

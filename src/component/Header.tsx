@@ -2,8 +2,9 @@ import React from 'react';
 import {StyleSheet, View, TouchableOpacity, Pressable} from 'react-native';
 import {AppText} from '../component';
 import {getStatusBarHeight, ifIphoneX} from 'react-native-iphone-x-helper';
-import {colors, DEVICE, fontFamily, scaleHeight, SIZE, STYLE} from '../util';
-import {IconBack, IconSkip} from '../assets';
+import {colors, fontFamily, scaleHeight, SIZE} from '../theme';
+import {DEVICE, STYLE} from '../util';
+import {IconBack} from '../assets';
 import {useNavigation} from '@react-navigation/native';
 import {HeaderProps} from '../interfaces';
 
@@ -32,11 +33,6 @@ const Header = React.memo((props: HeaderProps) => {
   };
 
   const renderIconRight = () => {
-    switch (iconRight) {
-      case 'skip':
-        return <IconSkip />;
-    }
-
     return null;
   };
 
@@ -84,16 +80,17 @@ const styles = StyleSheet.create({
     fontSize: SIZE.base_size,
     color: colors.secondPrimary,
     flex: 1,
-    paddingHorizontal: SIZE.base_space,
+    // paddingHorizontal: SIZE.base_space,
     textAlign: 'center',
     ...fontFamily.fontWeight900,
+    textTransform: 'uppercase',
   },
   viewRow: {
     flexDirection: 'row',
     width: DEVICE.width,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: SIZE.big_space,
+    paddingHorizontal: (SIZE.big_space * 2) / 3,
   },
   buttonLeft: {
     left: SIZE.base_space,

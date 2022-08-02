@@ -1,11 +1,11 @@
-import {colors, fontFamily, SIZE} from '../util';
+import {colors, fontFamily, SIZE} from '../theme';
 import React from 'react';
 import {StyleSheet, Text, TextStyle} from 'react-native';
 // import 'intl/locale-data/jsonp/en';
 
 interface AppTextProps {
   children: any;
-  style?: TextStyle | [TextStyle];
+  style?: TextStyle | [TextStyle] | undefined;
   onPress?: any;
   numberOfLines?: number;
   isPrice?: boolean;

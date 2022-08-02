@@ -1,4 +1,4 @@
-import {colors, scaleHeight, SIZE} from '../../../util';
+import {colors, SIZE} from '../../../theme';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({

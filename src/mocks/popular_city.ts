@@ -1,0 +1,81 @@
+import {boston, chicago, sanfrancisco, job_detail} from '../assets';
+
+export const POPULAR_CITY_DATA = [
+  {
+    image: sanfrancisco,
+    city: 'San Francisco',
+    province: 'California',
+    matches_count: 15,
+    rate_per_week: '$2,659',
+  },
+  {
+    image: boston,
+    city: 'Boston',
+    province: 'Massachusetts',
+    matches_count: 18,
+    rate_per_week: '$2,659',
+  },
+  {
+    image: chicago,
+    city: 'Chicago',
+    province: 'California',
+    matches_count: 20,
+    rate_per_week: '$1,859.30',
+  },
+  {
+    image: job_detail,
+    city: 'Oregon',
+    province: 'California',
+    matches_count: 30,
+    rate_per_week: '$2,659',
+  },
+  {
+    image: sanfrancisco,
+    city: 'San Francisco',
+    province: 'California',
+    matches_count: 15,
+    rate_per_week: '$1,900.34',
+  },
+  {
+    image: boston,
+    city: 'Houston',
+    province: 'Washington',
+    matches_count: 18,
+    rate_per_week: '$2,720.32',
+  },
+  {
+    image: chicago,
+    city: 'Washington',
+    province: 'District of Columbia',
+    matches_count: 20,
+    rate_per_week: '$2,010.54',
+  },
+  {
+    image: chicago,
+    city: 'Chicago',
+    province: 'California',
+    matches_count: 20,
+    rate_per_week: '$1,859.30',
+  },
+  {
+    image: job_detail,
+    city: 'Oregon',
+    province: 'California',
+    matches_count: 30,
+    rate_per_week: '$2,659',
+  },
+  {
+    image: sanfrancisco,
+    city: 'San Francisco',
+    province: 'California',
+    matches_count: 15,
+    rate_per_week: '$1,900.34',
+  },
+  {
+    image: boston,
+    city: 'Houston',
+    province: 'Washington',
+    matches_count: 18,
+    rate_per_week: '$2,720.32',
+  },
+];

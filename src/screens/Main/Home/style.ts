@@ -1,36 +1,71 @@
-import {colors, SIZE} from '../../../util';
+import {colors, SIZE} from '../../../theme';
 import {StyleSheet} from 'react-native';
+import {fontFamily, scaleSize} from '../../../theme';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // paddingHorizontal: 16,
+    backgroundColor: 'white',
   },
-  logo: {
-    width: 200,
-    height: 55,
-    marginTop: 65,
-    alignSelf: 'center',
-    marginBottom: 36,
-  },
-  btnSignIn: {
-    marginTop: SIZE.base_space,
-  },
-  forgetPass: {
-    color: colors.secondPrimary,
-    textAlign: 'center',
-    marginBottom: 40,
-    marginTop: SIZE.padding,
-  },
-  viewSignUp: {
+  body: {paddingHorizontal: SIZE.base_space, marginTop: 16},
+  block: {
+    borderWidth: 2,
+    borderColor: colors.borderPrimary,
+    borderRadius: 16,
+    paddingLeft: 25,
+    paddingVertical: 14,
+    paddingRight: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    marginBottom: 8,
   },
-  textSignUp: {
+  blockImage: {
+    width: 55,
+    height: 62,
+    marginRight: 25,
+    resizeMode: 'contain',
+  },
+  blockTitle: {
+    ...fontFamily.fontWeight900,
+    color: colors.primary,
+    marginBottom: 4,
+  },
+  blockDescription: {
     color: colors.secondPrimary,
+    fontSize: scaleSize(12),
+    lineHeight: 18,
+  },
+  flexRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginVertical: 16,
+  },
+  title: {
+    color: colors.secondPrimary,
+    fontSize: scaleSize(18),
+    letterSpacing: 0.1,
+    lineHeight: 20,
+    ...fontFamily.fontWeight500,
+    textTransform: 'uppercase',
+  },
+  iconNext: {
+    transform: [{rotate: '180deg'}],
+  },
+  titleModal: {
+    fontSize: scaleSize(16),
+    letterSpacing: 0.1,
+    lineHeight: 20,
+    color: colors.primary,
+    marginBottom: 12,
+    ...fontFamily.fontWeight800,
+  },
+  descriptionModal: {
+    fontSize: scaleSize(14),
+    letterSpacing: 0.1,
+    lineHeight: 20,
+    color: colors.primary,
+    marginBottom: 8,
   },
 });
 

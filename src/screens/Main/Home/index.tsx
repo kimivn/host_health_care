@@ -1,68 +1,127 @@
 import {useNavigation} from '@react-navigation/core';
-import React, {useEffect, useState} from 'react';
-import {View, Image, TouchableOpacity} from 'react-native';
+import React, {MutableRefObject, useRef} from 'react';
+import {View, Image, FlatList, Pressable} from 'react-native';
 import {styles} from './style';
-import {SIGNUP} from '../../../navigation/routeName';
-import {logo} from '../../../assets';
-import {AppInput, Header, AppButton, AppText} from '../../../component';
-import {loginState} from '../../../interfaces';
-import {SIZE} from '../../../util';
+import {credentialing, IconBack, timecards} from '../../../assets';
+import {
+  Header,
+  AppText,
+  SuggestItem,
+  PopularItem,
+  AppModal,
+} from '../../../component';
+import {POPULAR_CITY_DATA, SUGGEST_DATA} from '../../../mocks';
+import {RefModal} from '../../../interfaces';
 
 interface screenNavigationProp {
   navigate: any;
 }
 
-const Home = React.memo(() => {
-  const [user, setUser] = useState<loginState>({
-    email: '',
-    password: '',
-  });
+const Home = () => {
   const navigation = useNavigation<screenNavigationProp>();
+  const suggest = SUGGEST_DATA;
+  const popular = POPULAR_CITY_DATA;
+  const refModal = useRef() as MutableRefObject<RefModal>;
 
-  const moveToSignUp = () => {
-    navigation.navigate(SIGNUP);
+  const onSubmit = () => {
+    refModal.current.openModal();
   };
 
-  const onChangeValue = (value: any, name?: string) => {
-    if (name) {
-      const nUser = {...user};
-      nUser[name] = value;
-      setUser(nUser);
-    }
+  const onPopular = () => {
+    navigation.navigate('POPULAR_CITY');
+  };
+
+  const onJobDetail = () => {
+    navigation.navigate('JOB_DETAIL');
+  };
+
+  const onSuggestJob = () => {
+    navigation.navigate('SUGGEST_JOB');
   };
 
   return (
     <View style={styles.container}>
       <Header title="HOME" />
-      <View style={{paddingHorizontal: SIZE.base_space}}>
-        <Image style={styles.logo} source={logo} />
-        <AppInput
-          value={user.email}
-          onValueChange={onChangeValue}
-          name="email"
-          label="Email"
-        />
-        <AppInput
-          value={user.password}
-          onValueChange={onChangeValue}
-          name="password"
-          label="Password"
-          showEye
-        />
+      <FlatList
+        data={[0]}
+        showsVerticalScrollIndicator={false}
+        renderItem={() => (
+          <>
+            <View style={styles.body}>
+              <Block
+                image={timecards}
+                title={'Timecards'}
+                description={
+                  'Easily upload images of \nyour timecards for quick processing.'
+                }
+              />
+              <Block
+                image={credentialing}
+                title={'Credentialing'}
+                description={
+                  'Add information for background \ncheck and I9. (Links to Essium)'
+                }
+              />
 
-        <AppButton title="SIGN IN" containerStyle={styles.btnSignIn} />
-        <TouchableOpacity>
-          <AppText style={styles.forgetPass}>{'Forgot password?'}</AppText>
-        </TouchableOpacity>
-        <View style={styles.viewSignUp}>
-          <AppText>{"Don't have an account?"}</AppText>
-          <TouchableOpacity onPress={moveToSignUp}>
-            <AppText style={styles.textSignUp}>{' Sign Up here'}</AppText>
-          </TouchableOpacity>
-        </View>
+              <View>
+                <Pressable style={styles.flexRow} onPress={onSuggestJob}>
+                  <AppText style={styles.title}>{'Suggested'}</AppText>
+                  <IconBack style={styles.iconNext} />
+                </Pressable>
+                <FlatList
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  data={suggest}
+                  renderItem={({item}) => (
+                    <SuggestItem
+                      item={item}
+                      onSubmit={onSubmit}
+                      onPress={onJobDetail}
+                    />
+                  )}
+                  keyExtractor={(item, index) => index.toString()}
+                />
+              </View>
+              <View>
+                <Pressable style={styles.flexRow} onPress={onPopular}>
+                  <AppText style={styles.title}>{'Popular cities'}</AppText>
+                  <IconBack style={styles.iconNext} />
+                </Pressable>
+                <FlatList
+                  data={popular}
+                  renderItem={({item}) => (
+                    <PopularItem item={item} onPress={onSuggestJob} />
+                  )}
+                  keyExtractor={(item, index) => index.toString()}
+                />
+              </View>
+            </View>
+          </>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
+      <AppModal ref={refModal}>
+        <AppText style={styles.titleModal}>
+          {'Your request has been submitted'}
+        </AppText>
+        <AppText style={styles.descriptionModal}>
+          {'Your recruiter will contact you shortly'}
+        </AppText>
+      </AppModal>
+    </View>
+  );
+};
+
+const Block = ({image, title, description}) => {
+  return (
+    <View style={styles.block}>
+      <Image source={image} style={styles.blockImage} />
+      <View>
+        <AppText style={styles.blockTitle}>{title}</AppText>
+        <AppText style={styles.blockDescription}>{description}</AppText>
       </View>
     </View>
   );
-});
+};
 
 export {Home};

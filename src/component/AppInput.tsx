@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   Pressable,
 } from 'react-native';
-import {colors, fontFamily, DEVICE, scaleWidth, SIZE, scaleSize} from '../util';
+import {colors, fontFamily, scaleWidth, SIZE, scaleSize} from '../theme';
+import {DEVICE} from '../util';
 import {EyeIconClose, EyeIconOpen, IconClear} from '../assets';
 import {IAppInput} from '../interfaces';
 
@@ -190,7 +191,7 @@ const stylesBase = StyleSheet.create({
   error: {
     marginTop: 5,
     color: colors.red,
-    fontSize: scaleSize(15),
+    fontSize: scaleSize(12),
     lineHeight: scaleSize(17),
   },
 });
@@ -198,9 +199,7 @@ const stylesBase = StyleSheet.create({
 const stylesLinear = StyleSheet.create({
   inputWrap: {
     minHeight: 'auto',
-    backgroundColor: colors.white,
     alignItems: 'flex-start',
-    borderBottomColor: colors.borderProfileList,
     borderBottomWidth: 1,
     borderRadius: 0,
   },
